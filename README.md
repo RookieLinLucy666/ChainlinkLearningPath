@@ -20,8 +20,12 @@ https://polygonscan.com/address/0x5a1805ffd9cfa1f79fb3cfced12e02e342672e2e
 4. `git clone https://github.com/<YOUR_USERNAME>/ChainlinkLearningPath.git`
 5. 运行 `npm install` 所需要的依赖。
 6. 在测试网部署时，安装浏览器端钱包 [Metamask](https://metamask.io/)，并且生成自己的账户地址。
-7. 在测试网部署时，通过 [Chainlink faucet](https://faucets.chain.link/) 获得 Sepolia 测试网的 ETH 以及 Link。
+7. 在测试网部署时，通过 [Chainlink faucet](https://faucets.chain.link/goerli) 获得 goerli 测试网的 ETH 以及 Link。
+
+先用remix部署学习一遍，再用HardHat。
+
 ### 任务 1 - Chainlink Data Feed：
+
 1. 学习[下述学习资料](#学习资料)中的 Chainlink Data Feed（喂价）部分内容。
 2. 完成 [contracts/DataFeedTask.sol](./contracts/DataFeedTask.sol) 中的任务。
 ### 任务 2 - Chainlink VRF：
@@ -94,7 +98,7 @@ Chainlink Any API 可以让你的智能合约通过 Chainlink 去中心化预言
 - [测试网预言机合约地址](https://docs.chain.link/docs/any-api/testnet-oracles/)：可以通过列表中的预言机合约地址，使用已有 Chainlink 节点的 Any API 服务。
 - [Chainlink Market](https://market.link/overview)：在此页面查找不同链上的数据提供商，通过这些节点让智能合约获得诸如股票，天气，经济，体育等等领域的数据。
 
-*** 
+***
 
 ## 接下来可以做什么？
 - 尝试在应用中使用 Chainlink 服务，扩展你的 dApp 的边界。

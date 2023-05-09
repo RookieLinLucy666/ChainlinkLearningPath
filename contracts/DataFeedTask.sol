@@ -28,7 +28,7 @@ contract DataFeedTask {
      * 
      * 注意：
      * 通过 Remix 部署在非本地环境中时
-     * 查看 aggregator 的地址 https://docs.chain.link/docs/ethereum-addresses/#Goerli%20Testnet，获得 Aggregator 合约地址
+     * 查看 aggregator 的地址 https://docs.chain.link/data-feeds/price-feeds/addresses/，获得 Aggregator 合约地址
      * 本地环境中相关参数已经在测试脚本中配置
      *  */
     constructor(
@@ -37,10 +37,10 @@ contract DataFeedTask {
         address _ethPriceFeed) {
         owner = msg.sender;
         
-        //修改以下 solidity 代码
-        linkPriceFeed = AggregatorV3Interface(address(0));
-        btcPriceFeed = AggregatorV3Interface(address(0));
-        ethPriceFeed = AggregatorV3Interface(address(0));
+        //修改以下 solidity 代码: link/eth, btc/usd, eth/usd
+        linkPriceFeed = AggregatorV3Interface(address(0x779877A7B0D9E8603169DdbD7836e478b4624789));
+        btcPriceFeed = AggregatorV3Interface(address(0xA39434A63A52E749F02807ae27335515BA4b07F7));
+        ethPriceFeed = AggregatorV3Interface(address(0xD4a33860578De61DBAbDc8BFdb98FD742fA7028e));
     }
 
     /**
@@ -49,7 +49,14 @@ contract DataFeedTask {
      */
     function getLinkLatestPrice() public view returns (int256) {
         //在此添加并且修改 solidity 代码
-        return 0;
+        (
+            /* uint80 roundID */,
+            int price,
+            /*uint startedAt*/,
+            /*uint timeStamp*/,
+            /*uint80 answeredInRound*/
+        ) = linkPriceFeed.latestRoundData();
+        return price;
     }
 
     /**
@@ -58,7 +65,14 @@ contract DataFeedTask {
      */  
     function getBtcLatestPrice() public view returns (int256) {
         //在此添加并且修改 solidity 代码
-        return 0;
+        (
+            /* uint80 roundID */,
+            int price,
+            /*uint startedAt*/,
+            /*uint timeStamp*/,
+            /*uint80 answeredInRound*/
+        ) = btcPriceFeed.latestRoundData();
+        return price;
     }
 
     /**
@@ -67,7 +81,14 @@ contract DataFeedTask {
      */
     function getEthLatestPrice() public view returns (int256) {
         //在此添加并且修改 solidity 代码
-        return 0;
+        (
+            /* uint80 roundID */,
+            int price,
+            /*uint startedAt*/,
+            /*uint timeStamp*/,
+            /*uint80 answeredInRound*/
+        ) = ethPriceFeed.latestRoundData();
+        return price;
     }
 
     /**
